@@ -16,7 +16,6 @@ export class Inventory {
   ngOnInit() {
     this.inventoryService.getInventory()
       .subscribe(data => {
-        console.log('DATA FROM API:', data);
         this.items.set(data);
       });
   }

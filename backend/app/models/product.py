@@ -1,7 +1,10 @@
 from sqlalchemy import String
 from sqlalchemy.orm import Mapped, mapped_column, relationship
-
+from typing import TYPE_CHECKING
 from app.database.database import Base
+
+if TYPE_CHECKING:
+    from app.models.inventory_item import InventoryItem
 
 
 class Product(Base):
