@@ -1,13 +1,13 @@
 from fastapi import FastAPI
 
+from app.database.database import engine
+
 app = FastAPI()
 
 
 @app.get("/")
 def root():
-    return {"message": "Hello Grocery App!"}
+    with engine.connect():
+        pass
 
-
-@app.get("/inventory")
-def inventory():
-    return []
+    return {"status": "connected"}
