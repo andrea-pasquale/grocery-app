@@ -1,6 +1,5 @@
 from sqlalchemy import String
-from sqlalchemy.orm import Mapped
-from sqlalchemy.orm import mapped_column
+from sqlalchemy.orm import Mapped, mapped_column, relationship
 
 from app.database.database import Base
 
@@ -13,3 +12,7 @@ class Product(Base):
     name: Mapped[str] = mapped_column(String(100), nullable=False)
 
     category: Mapped[str | None] = mapped_column(String(50), nullable=True)
+
+    inventory_items: Mapped[list["InventoryItem"]] = relationship(
+        back_populates="product"
+    )

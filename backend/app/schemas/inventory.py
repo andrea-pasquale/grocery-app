@@ -1,5 +1,6 @@
 from datetime import date
 from pydantic import BaseModel
+from app.schemas.product import ProductResponse
 
 
 class InventoryItemCreate(BaseModel):
@@ -13,7 +14,7 @@ class InventoryItemCreate(BaseModel):
 
 class InventoryItemResponse(BaseModel):
     id: int
-    product_id: int
+    product: ProductResponse
     quantity: float
     unit: str
     location: str

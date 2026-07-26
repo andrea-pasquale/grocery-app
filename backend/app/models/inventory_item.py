@@ -20,3 +20,5 @@ class InventoryItem(Base):
     expiration_date: Mapped[date | None] = mapped_column(Date, nullable=True)
 
     notes: Mapped[str | None] = mapped_column(String(255), nullable=True)
+
+    product: Mapped["Product"] = relationship(back_populates="inventory_items")
