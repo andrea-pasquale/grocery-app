@@ -1,13 +1,11 @@
 from fastapi import FastAPI
+from app.api import inventory
 
-from app.database.database import engine
 
 app = FastAPI()
+app.include_router(inventory.router)
 
 
 @app.get("/")
 def root():
-    with engine.connect():
-        pass
-
-    return {"status": "connected"}
+    return {"message": "Hello Grocery App"}
