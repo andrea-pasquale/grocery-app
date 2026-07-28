@@ -1,0 +1,21 @@
+<h1>My Grocery Inventory</h1>
+
+<p>Number of items: {{ items().length }}</p>
+
+<ul>
+
+  @for (item of items(); track item.id) {
+
+    <li>
+
+      {{ item.product.name }}
+
+      - {{ item.quantity }} {{ item.unit }}
+
+      - {{ item.location }}
+
+    </li>
+
+  }
+
+</ul>
